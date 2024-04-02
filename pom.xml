@@ -3,7 +3,11 @@
   <groupId>event.planner</groupId>
   <artifactId>weddingPlanner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+
+	<properties>
+ 	  <sonar.organization>izzeddinasmar-softwareproject</sonar.organization>
+  	  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
   
   <dependencies>
 	  <dependency>
@@ -53,4 +57,32 @@
 	</dependency>
 	
     </dependencies>
+	
+	<build>
+        <plugins>
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.11</version>
+            <executions>
+                <execution>
+                    <id>prepare-agent</id>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+
+                <execution>
+                    <id>generate-report</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+
+        </plugin>
+        </plugins>
+    </build>
+	
 </project>
